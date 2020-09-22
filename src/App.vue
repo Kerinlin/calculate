@@ -4,4 +4,15 @@
   </div>
 </template>
 
-<style lang="less"></style>
+<style lang="scss" scoped>
+#app {
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-image: url("./assets/bg4.jpg");
+  background-size: contain;
+  &:hover {
+    cursor: url("./assets/defaultcur.png"), default;
+  }
+}
+</style>
