@@ -11,7 +11,7 @@
             placeholder="请舟舟输入书名"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="class"
             >书名</label
           >
@@ -24,21 +24,23 @@
             placeholder="请舟舟输入职务"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="class"
             >职务</label
           >
         </span>
         <span>
           <input
+            @input="getNumber"
+            v-enterNumber
             v-model="price"
             class="gate"
             id="move"
-            type="text"
+            type="number"
             placeholder="请舟舟输入单价(元/小时)"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="move"
             >单价</label
           >
@@ -47,44 +49,87 @@
       <div class="row">
         <span>
           <input
+            @input="getNumber"
+            v-enterNumber
             v-model="hour"
             class="gate"
             id="class"
-            type="text"
+            type="number"
             placeholder="请舟舟输入小时"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="class"
             >时</label
           >
         </span>
         <span>
           <input
+            @input="getNumber"
+            v-enterNumber
             v-model="minute"
             class="gate"
             id="element"
-            type="text"
+            type="number"
             placeholder="请舟舟输入分钟"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="element"
             >分</label
           >
         </span>
         <span>
           <input
+            @input="getNumber"
+            v-enterNumber
             v-model="sec"
             class="gate"
             id="move"
-            type="text"
+            type="number"
             placeholder="请舟舟输入秒数"
           />
           <label
-            style="font-family:'HappyZcool-2016235ab6040f226c2';"
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
             for="move"
             >秒</label
+          >
+        </span>
+      </div>
+      <div class="row">
+        <span class="episode">
+          <input
+            @input="getNumber"
+            v-enterNumber
+            v-model="start"
+            class="gate episodeInput"
+            id="class"
+            type="number"
+            placeholder="开始集数"
+          />
+          <label
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
+            for="class"
+            >开始</label
+          >
+        </span>
+        <span style="color: #fff;font-size: 30px;">
+          ~
+        </span>
+        <span class="episode">
+          <input
+            @input="getNumber"
+            v-enterNumber
+            v-model="end"
+            class="gate episodeInput"
+            id="element"
+            type="number"
+            placeholder="结束集数"
+          />
+          <label
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
+            for="element"
+            >结束</label
           >
         </span>
       </div>
@@ -103,7 +148,9 @@ export default {
       price: "",
       hour: "",
       minute: "",
-      sec: ""
+      sec: "",
+      start: "",
+      end: ""
     };
   },
   computed: {
@@ -114,6 +161,25 @@ export default {
       let total =
         this.hour * this.price + this.minute * minPrice + this.sec * secPrice;
       return total.toFixed(2);
+    }
+  },
+  methods: {
+    getNumber() {
+      if (this.minute > 60) {
+        this.minute = 60;
+      }
+      if (this.sec > 60) {
+        this.sec = 60;
+      }
+      // if(this.minute < 0) {
+      //   this.minute = 0
+      // }
+      this.price < 0 ? (this.price = 0) : "";
+      this.minute < 0 ? (this.minute = 0) : "";
+      this.hour < 0 ? (this.hour = 0) : "";
+      this.sec < 0 ? (this.sec = 0) : "";
+      this.start < 0 ? (this.start = 0) : "";
+      this.end < 0 ? (this.end = 0) : "";
     }
   }
 };
@@ -139,10 +205,10 @@ export default {
 }
 .home {
   .title {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: center;
     color: #efefef;
-    font-family: "HappyZcool-2016235ab6040f226c2";
+    font-family: "HappyZcool-201623648b59bd226c2";
     line-height: 30px;
     font-size: 40px;
     font-weight: 400;
@@ -163,8 +229,8 @@ export default {
       }
       .income {
         color: #efefef;
-        font-size: 24px;
-        font-family: "HappyZcool-2016235ab6040f226c2";
+        font-size: 30px;
+        // font-family:'HappyZcool-201623648b59bd226c2';
       }
     }
     .incomeRow {
@@ -190,7 +256,7 @@ export default {
         font-weight: 300;
         font-size: 12px;
         letter-spacing: 1px;
-        font-family: "HappyZcool-2016235ab6040f226c2";
+        font-family: "HappyZcool-201623648b59bd226c2";
       }
 
       + label {
@@ -255,6 +321,13 @@ export default {
         &:before {
           transform: rotate(10deg);
         }
+      }
+    }
+
+    .episode {
+      margin: 10px 0px;
+      .episodeInput {
+        width: 130px;
       }
     }
   }
