@@ -132,6 +132,24 @@
             >结束</label
           >
         </span>
+
+        <span class="episode">
+          <input
+            @input="getNumber"
+            v-enterNumber
+            readonly
+            v-model="total"
+            class="gate episodeInput1"
+            id="element"
+            type="number"
+            placeholder="项目"
+          />
+          <label
+            style="font-family:'HappyZcool-201623648b59bd226c2';"
+            for="element"
+            >项目</label
+          >
+        </span>
       </div>
       <div class="row incomeRow">
         <span class="income">收入: {{ income }} 元</span>
@@ -161,13 +179,13 @@ export default {
       let total =
         this.hour * this.price + this.minute * minPrice + this.sec * secPrice;
       return total.toFixed(2);
+    },
+    total() {
+      return this.end - this.start + 1;
     }
   },
   methods: {
     getNumber() {
-      if (this.minute > 60) {
-        this.minute = 60;
-      }
       if (this.sec > 60) {
         this.sec = 60;
       }
@@ -208,7 +226,7 @@ export default {
     margin-top: 50px;
     text-align: center;
     color: #efefef;
-    font-family: "HappyZcool-201623648b59bd226c2";
+    // font-family: 'HappyZcool-201623648b59bd226c2';
     line-height: 30px;
     font-size: 40px;
     font-weight: 400;
@@ -256,7 +274,7 @@ export default {
         font-weight: 300;
         font-size: 12px;
         letter-spacing: 1px;
-        font-family: "HappyZcool-201623648b59bd226c2";
+        // font-family: 'HappyZcool-201623648b59bd226c2';
       }
 
       + label {
@@ -327,7 +345,7 @@ export default {
     .episode {
       margin: 10px 0px;
       .episodeInput {
-        width: 130px;
+        width: 170px;
       }
     }
   }
