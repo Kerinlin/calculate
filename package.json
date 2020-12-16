@@ -1,9 +1,9 @@
 {
   "name": "calculateaudio",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "private": true,
   "author": "kerinlin",
-  "description": "Translate for file",
+  "description": "计算后期工资",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",

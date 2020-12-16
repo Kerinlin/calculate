@@ -37,7 +37,7 @@
             class="gate"
             id="move"
             type="number"
-            placeholder="请舟舟输入单价(元/小时)"
+            placeholder="输入单价(元/小时)"
           />
           <label
             style="font-family:'HappyZcool-201623648b59bd226c2';"
@@ -113,7 +113,7 @@
             >开始</label
           >
         </span>
-        <span style="color: #fff;font-size: 30px;">
+        <span style="color: #fff;font-size: 18px;">
           ~
         </span>
         <span class="episode">
@@ -228,13 +228,14 @@ export default {
     color: #efefef;
     // font-family: 'HappyZcool-201623648b59bd226c2';
     line-height: 30px;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: 400;
   }
   .form-container {
-    width: 60%;
+    width: 90%;
     margin: 0 auto;
     .row {
+      text-align: center;
       // margin: 0 auto;
       @include epic-sides() {
         background: inherit;
@@ -243,11 +244,11 @@ export default {
       span {
         position: relative;
         display: inline-block;
-        margin: 30px 10px;
+        margin: 24px 10px;
       }
       .income {
         color: #efefef;
-        font-size: 30px;
+        font-size: 24px;
         // font-family:'HappyZcool-201623648b59bd226c2';
       }
     }
@@ -256,7 +257,7 @@ export default {
     }
     .gate {
       display: inline-block;
-      width: 215px;
+      width: 140px;
       padding: 10px 0 10px 15px;
       font-family: "Open Sans", sans;
       font-weight: 400;
@@ -345,7 +346,7 @@ export default {
     .episode {
       margin: 10px 0px;
       .episodeInput {
-        width: 170px;
+        width: 120px;
       }
     }
   }
